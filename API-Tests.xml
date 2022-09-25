@@ -1,6 +1,10 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="API Test Suite" verbose="10" >
+    <listeners>
+        <listener
+                class-name="org.api.util.TestListener"/>
+    </listeners>
     <test name="Email Validation Tests" >
         <classes>
             <class name="org.api.tests.TypiCodeTests" />

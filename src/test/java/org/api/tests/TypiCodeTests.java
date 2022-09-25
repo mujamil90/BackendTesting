@@ -21,7 +21,7 @@ public class TypiCodeTests extends BaseSetup{
      */
 
     @Test(dataProvider = "getPostIds", dataProviderClass = PostsData.class)
-    public void testGetPosts (Integer postId) {
+    public void testEmailFormatForEachEmailFromEveryCommentPostedByUserSamantha (Integer postId) {
          List<String> emails = given ()
                 .get ( POSTS + "/" + postId + COMMENTS) // e.g. https://jsonplaceholder.typicode.com/posts/21/comments
                 .then ()
