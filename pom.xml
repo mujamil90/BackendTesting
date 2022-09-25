@@ -21,6 +21,11 @@
     <json-path.version>2.9.0</json-path.version>
     <log4jcore.version>2.18.0</log4jcore.version>
     <log4japi.version>2.18.0</log4japi.version>
+    <surefire.version>2.20</surefire.version>
+    <allure.version>2.19.0</allure.version>
+    <maven-compiler.version>3.8.1</maven-compiler.version>
+    <maven.compiler.release>8</maven.compiler.release>
+    <aspectj.version>1.9.9.1</aspectj.version>
   </properties>
 
 
@@ -61,5 +66,50 @@
       <artifactId>log4j-api</artifactId>
       <version>${log4japi.version}</version>
     </dependency>
+<!--    <dependency>-->
+<!--      <groupId>io.qameta.allure</groupId>-->
+<!--      <artifactId>allure-testng</artifactId>-->
+<!--      <version>${allure.version}</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
   </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven-compiler.version}</version>
+          <configuration>
+            <release>${maven.compiler.release}</release>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${surefire.version}</version>
+          <configuration>
+            <suiteXmlFiles>
+              <!--suppress UnresolvedMavenProperty -->
+              <suiteXmlFile>
+                ${suiteXmlFile}
+              </suiteXmlFile>
+            </suiteXmlFiles>
+<!--            <argLine>-->
+<!--              -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"-->
+<!--            </argLine>-->
+          </configuration>
+
+<!--          <dependencies>-->
+<!--            <dependency>-->
+<!--              <groupId>org.aspectj</groupId>-->
+<!--              <artifactId>aspectjweaver</artifactId>-->
+<!--              <version>${aspectj.version}</version>-->
+<!--            </dependency>-->
+<!--          </dependencies>-->
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 </project>
