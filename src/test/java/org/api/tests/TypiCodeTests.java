@@ -1,6 +1,6 @@
 package org.api.tests;
 
-import data.PostsData;
+import org.api.data.PostsData;
 import org.api.util.EmailValidation;
 import org.testng.annotations.Test;
 import java.util.List;

@@ -1,10 +1,15 @@
 package org.api.util;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.regex.Pattern;
 /***
  * @author mohammadmuzzamil
  */
 public class EmailValidation {
+
+    private static final Logger LOGGER = LogManager.getLogger (EmailValidation.class);
 
     /***
      *  This function will check the local part (part before  @), as well as the domain part of the email:
@@ -46,10 +51,12 @@ public class EmailValidation {
      * @return true if email format is valid else return false.
      */
     public static boolean patternMatches(String emailAddress) {
+        LOGGER.info("Validating email format for email id - '" + emailAddress +"'");
         String regexPattern = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
                 + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
         return Pattern.compile(regexPattern)
                 .matcher(emailAddress)
                 .matches();
+
     }
 }
