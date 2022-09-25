@@ -1,26 +1,30 @@
 package data;
 
 import org.testng.annotations.DataProvider;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import static data.UserData.getIdForUser;
 import static data.UserData.getResponseForEndPoint;
+import static org.api.util.CommonJsonNodes.ID;
+import static org.api.util.CommonJsonNodes.USER_ID;
+import static org.api.util.Endpoints.POSTS;
 
 /***
  * @author mohammadmuzzamil
  */
 public class PostsData {
 
+    private String SAMANTHA = "Samantha";
+
     /***
      *
      * @return return List of Ids of post created by specific user
      */
     public List<Integer []> getAllPostIds(){
-        return getResponseForEndPoint("/posts?userId="+ getIdForUser("Samantha"))
+        return getResponseForEndPoint(POSTS +"?"+ USER_ID +"="+ getIdForUser(SAMANTHA))// e.g. https://jsonplaceholder.typicode.com/posts?userId=1
                 .body()
-                .path("id");
+                .path(ID);
     }
 
 

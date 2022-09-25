@@ -1,9 +1,13 @@
 package data;
 
 import io.restassured.response.Response;
-
 import static com.jayway.restassured.path.json.JsonPath.from;
 import static io.restassured.RestAssured.given;
+import static org.api.util.CommonJsonNodes.ID;
+import static org.api.util.CommonJsonNodes.USER_NAME;
+import static org.api.util.Endpoints.BASE_URL;
+import static org.api.util.Endpoints.USERS;
+
 /***
  * @author mohammadmuzzamil
  */
@@ -18,7 +22,7 @@ public class UserData {
      */
     public static Response getResponseForEndPoint(String endpoint){
        return given ()
-                .get ("https://jsonplaceholder.typicode.com" + endpoint)
+                .get (BASE_URL + endpoint)
                 .then ()
                 .statusCode (200)
                 .and ()
@@ -28,15 +32,15 @@ public class UserData {
     }
 
     /***
-     * This method will return user Id for provided user as method parameter. Its uses JsonPath to check user in Json response and
+     * This method will return user-Id for provided user as method parameter. Its uses JsonPath to check user in Json response and
      *  return user id.
      * @param user is name of user for which it searchs for user id.
      * @return user id of @user
      */
     public static String getIdForUser(String user){
 
-        String response = getResponseForEndPoint("/users").asString();
-        return from(response).getList("findAll{it.username=='"+user+"' }.id").get(0).toString();
+        String response = getResponseForEndPoint(USERS).asString(); //e.g. https://jsonplaceholder.typicode.com/users
+        return from(response).getList("findAll{it."+ USER_NAME +"=='"+user+"' }."+ ID).get(0).toString();
     }
 
 
