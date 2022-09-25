@@ -27,11 +27,7 @@ jobs:
       - run:
           name: Test
           command: mvn test -Dsurefire.suiteXmlFiles=API-Tests.xml  
-          # Generate allure report
-      - run:
-          name: generate allure report
-          command: allure generate --clean
-          when: always
+
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
