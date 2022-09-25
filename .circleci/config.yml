@@ -30,9 +30,7 @@ jobs:
           # Generate allure report
       - run:
           name: generate allure report
-          command: |
-                 sudo npm install -g allure-commandline
-                 allure generate --clean
+          command: allure generate --clean
           when: always
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
