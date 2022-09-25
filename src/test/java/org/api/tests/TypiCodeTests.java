@@ -1,5 +1,6 @@
 package org.api.tests;
 
+import io.qameta.allure.*;
 import org.api.data.PostsData;
 import org.api.util.EmailValidation;
 import org.testng.annotations.Test;
@@ -12,6 +13,9 @@ import static org.testng.Assert.assertTrue;
 /***
  * @author mohammadmuzzamil
  */
+
+@Epic("Smoke Tests")
+@Feature("Email Validation Tests")
 public class TypiCodeTests extends BaseSetup{
 
     /***
@@ -20,7 +24,10 @@ public class TypiCodeTests extends BaseSetup{
      * @param postId post id address the specific post
      */
 
-    @Test(dataProvider = "getPostIds", dataProviderClass = PostsData.class)
+    @Test(dataProvider = "getPostIds", dataProviderClass = PostsData.class, priority = 0, description = "Verify correct format of each email address from every comment for specific user.")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: Test to validate correct format of email address from each comment.")
+    @Story("As a user, I want to validate format of each email address should correct in each comment section.")
     public void testEmailFormatForEachEmailFromEveryCommentPostedByUserSamantha (Integer postId) {
          List<String> emails = given ()
                 .get ( POSTS + "/" + postId + COMMENTS) // e.g. https://jsonplaceholder.typicode.com/posts/21/comments

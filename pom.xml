@@ -28,28 +28,23 @@
     <aspectj.version>1.9.9.1</aspectj.version>
   </properties>
 
-
   <dependencies>
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
       <version>${testng.version}</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
     <dependency>
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
       <version>${rest-assured.version}</version>
       <scope>test</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all -->
     <dependency>
       <groupId>org.hamcrest</groupId>
       <artifactId>hamcrest-all</artifactId>
       <version>${hamcrest-all.version}</version>
     </dependency>
-
-    <!-- https://mvnrepository.com/artifact/com.jayway.restassured/json-path -->
     <dependency>
       <groupId>com.jayway.restassured</groupId>
       <artifactId>json-path</artifactId>
@@ -60,18 +55,17 @@
       <artifactId>log4j-core</artifactId>
       <version>${log4jcore.version}</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api</artifactId>
       <version>${log4japi.version}</version>
     </dependency>
-<!--    <dependency>-->
-<!--      <groupId>io.qameta.allure</groupId>-->
-<!--      <artifactId>allure-testng</artifactId>-->
-<!--      <version>${allure.version}</version>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <version>${allure.version}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -96,18 +90,17 @@
                 ${suiteXmlFile}
               </suiteXmlFile>
             </suiteXmlFiles>
-<!--            <argLine>-->
-<!--              -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"-->
-<!--            </argLine>-->
+            <argLine>
+              -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+            </argLine>
           </configuration>
-
-<!--          <dependencies>-->
-<!--            <dependency>-->
-<!--              <groupId>org.aspectj</groupId>-->
-<!--              <artifactId>aspectjweaver</artifactId>-->
-<!--              <version>${aspectj.version}</version>-->
-<!--            </dependency>-->
-<!--          </dependencies>-->
+          <dependencies>
+            <dependency>
+              <groupId>org.aspectj</groupId>
+              <artifactId>aspectjweaver</artifactId>
+              <version>${aspectj.version}</version>
+            </dependency>
+          </dependencies>
         </plugin>
       </plugins>
     </pluginManagement>
