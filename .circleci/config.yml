@@ -29,9 +29,7 @@ jobs:
           # Generate allure report
       - run:
           name: generate allure report
-          command: |
-              sudo npm install -g allure-commandline
-              allure generate --clean
+          command: llure generate 
           when: always
 
 # Invoke jobs via workflows
