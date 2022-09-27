@@ -2,40 +2,41 @@
 
 ![N|Solid](https://rest-assured.io/img/logo-transparent.png)
 
+**These are sample tests who demonstrate API automation using Rest assured.**
 
 
 - Designed and written in **JAVA**
 - Implemented using **TestNG**
 - Build Tools - **Maven**
-- Test data -
-- Implemented -
-- Allure Report
-- Builder pattern for API tests
-
-
-
+- Test data - **Java Files**
+- Implemented with **Builder Pattern**
+- Test Reports - **Allure Report**
+- Continuous Integration - **Circle CI**
+- Data provide (post-ids) by another API '/posts' and feeding to test with testng **Data Provider**
 
 ---
-### Reporting
-- [Extent Reporting](http://extentreports.com/)
+### Platform Support
+- Windows
+- Linux
+- Macintosh
 
 ---
 ### Usage
 ```sh
 $ mvn clean test
 ```
+### Usage with specific Test-Suite
 ```sh
-mvn clean test -Dsurefire.suiteXmlFiles=GUI-Tests.xml
+mvn clean test -Dsurefire.suiteXmlFiles=API-Tests.xml
 ```
 
-After test execution, Allure results will appear in target/allure-results folder. To generate html report and automatically open it in a web browser, run the following command:
-
-### Generate Report
-
-
-
-
+After test execution, Allure results will appear in 'allure-results' folder. To generate html report and automatically open it in a web browser, run the following command:
 
 ---
+### Generate Report
 
+```sh
+$ allure serve allure-results
+```
 
+After execute above command it will open Allure report in browser itself.
